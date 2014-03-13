@@ -1,0 +1,49 @@
+import java.util.*;
+import java.io.*;
+
+public class QuickSort{
+
+    public void qsort(int[] L){
+	if (L.length <= 1){
+	    return L;
+	}
+	else{
+	    ArrayList L = new ArrayList();
+	    ArrayList R = new ArrayList();
+	    int p = a[pi];
+	    for (int i=low; i<high; i++){
+		int x = i-low;
+		if (a[i] < p){
+		    L.add(a[i]);
+		}
+	    }
+	    for (int i=low; i<high; i++){
+		int x = i-low;
+		if (a[i] == p){
+		    L.add(a[i]);
+		}
+	    }
+	    for (int i=low; i<high; i++){
+		int x = i-low;
+		if (a[i] > p){
+		    L.add(a[i]);
+		}
+	    }
+	    int[] left = L.toArray();
+	    int[] right = R.toArray();
+	    this.qsort(left);
+	    this.qsort(right);
+	    int x = 0;
+	    for (int i=0; i<left.length; i++){
+		L[x] = left[i];
+		x++;
+	    }
+	    x = x+1;
+	    L[x] = p;
+	    for (int i=0; i<right.length; i++){
+		L[x] = right[i];
+		x++;
+	    }
+	    
+	    
+	    
