@@ -1,4 +1,5 @@
 public class MyLinkedList {
+
     private Node head;
     
     public MyLinkedList() {
@@ -11,13 +12,16 @@ public class MyLinkedList {
 	head = tmp; //you must do this second
     }
     
-    //Gives you a null pointer error
-    /*
     public String toString(){
-	return "" + head + head.getNext();
+        Node temp = head;
+	String answer = "";
+	while (temp != null){
+	    answer = answer + temp + ",";
+	    temp = temp.getNext();
+	}
+	return answer;
     }
-    */ 
-
+ 
     public String set(int i, String s){
         String answer = "";
 	Node temp = head;
@@ -27,24 +31,41 @@ public class MyLinkedList {
 	    x++;
 	    if (x==i){
 		temp.setData(s);
+		answer = temp.getData();
 	    }
 	}
 	return answer;
     }
 
     public String get(int i){
+	Node n = head;
+	for (int x=0; x<i; x++){
+	    n = n.getNext();
+	}
+	return n.getData();
     }
 
     public String remove(int i){
+	Node n = head;
+	if (i==0){
+	    head = head.getNext();
+	    return n.getData();
+	}
+	for (int x=1; x<i; x++){
+	    n = n.getNext();
+	}
+	Node rem = n.getNext();
+	n.setNext(n.getNext().getNext());
+	return rem.getData();
     }
     
-    public String find(String s){
-	String answer = "";
+    public int find(String s){
+        int answer = 0;
 	Node temp = head;
-	for (int i=0; i<this.length; i++){
+	for (int i=0; i<this.length(); i++){
 	    temp = temp.getNext();
+	    answer++;
 	    if (temp.toString() == s){
-		answer = temp.toString();
 		return answer;
 	    }
 	}
@@ -53,6 +74,12 @@ public class MyLinkedList {
     
     public int length(){
 	int answer = 0;
+	Node n = head;
+	while (n != null){
+	    n = n.getNext();
+	    answer++;
+	}
+	return answer;
     }
 
     
