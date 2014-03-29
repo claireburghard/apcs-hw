@@ -30,17 +30,22 @@ public class DoubleLL<E> {
     }
     
     private Node<E> current;
-    
+
     public void insert(E d){
 	Node<E> n = new Node<E>(d);
 	if (current==null){
 	    current = n;
 	}
-	else {
-	    n.next = current;
-	    current.prev = n;
-	    current = n;
+	Node<E> tmp = current;
+	tmp.prev = current.prev;
+	tmp.next = current.next;
+	while (tmp.prev != null){
+	    tmp.getNext() = tmp;
+	    tmp = tmp.getPrev(); 
 	}
+	n.next = tmp;
+	tmp.prev = n;
+	tmp = n;
     }
     
     public E getCurrent() {
@@ -63,14 +68,14 @@ public class DoubleLL<E> {
 	if (current == null){
 	    return "";
 	}
-	while (current.getPrev() != null){
-	    current = current.getPrev();
+	Node<E> temp = current;
+	while (temp.getPrev() != null){
+	    temp = temp.getPrev();
 	}
-	Node<E> tmp = current;
 	String s = "";
-	while (tmp!=null){
-	    s = s + tmp.getData() + " ";
-	    tmp = tmp.getNext();
+	while (temp!=null){
+	    s = s + temp.getData() + " ";
+	    temp = temp.getNext();
 	}
 	return s;
     }
@@ -84,15 +89,20 @@ public class DoubleLL<E> {
 	System.out.println(L);
 	L.insert("three");
 	System.out.println(L);
+	System.out.println(L.getCurrent());
+	System.out.println(L.current.getPrev());
 	//First test up to here
 	
+	/*
 	System.out.println(L.getCurrent());
+	System.out.println(L);
 	L.forward();
+	System.out.println(L);
 	System.out.println(L.getCurrent());
 	L.insert("inserted");
 	System.out.println(L);
 	//Then test again up to here
-	
+	*/
     }
 }
 	
