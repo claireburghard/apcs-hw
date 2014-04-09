@@ -33,13 +33,12 @@ public class ArrayStack {
     public void push(String d) {
 	if (stack[top] == null) { //if the array is empty, put in d.
 	    stack[top] = d;
-	    return;
 	}
 	else if (top == 0){ //if the top of the stack is 0, that means its full, so grow.
 	    grow();
+	    stack[top] = d; //setting the top as the new element
 	}
 	top--; //the top moves up
-	stack[top] = d; //setting the top as the new element
     }
     
     //pop
