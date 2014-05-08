@@ -37,7 +37,6 @@ public class BST {
 
     public node search (int x){
 
- 
 	Node tmp = root;
 	while (tmp != null && tmp.getData() != x) {
 	    if (x < tmp.getData()) {
@@ -47,6 +46,19 @@ public class BST {
 	    }
 	}
 	return tmp;
+    }
+
+    public void traverse (Node n){
+	if (n == null){
+	    return;
+	}
+	else{
+	    System.out.println(n);
+	    Node temp =  n.getLeft();
+	    traverse(temp);
+	    temp = n.getRight();
+	    traverse(temp);
+	}
     }
 
 }
