@@ -1,0 +1,14 @@
+import java.io.*;
+import java.util.*;
+
+public class BST {
+
+    public Node root;
+
+    public void insert(Node n){
+    }
+
+    public node search (int x){
+    }
+
+}
