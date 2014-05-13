@@ -1,0 +1,18 @@
+import java.util.*;
+import java.io.*;
+
+public class Heap{
+
+    
+
+    public int findmax(){
+    }
+
+    public int removemax(){
+    }
+
+    public void insert (int n){
+    }
+}
+
+    
