@@ -1,0 +1,6 @@
+import java.io.*;
+
+public class iotest {
+
+    public static void main(String[] args){
+	PrintWriter printed = null;

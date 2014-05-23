@@ -37,7 +37,7 @@ public class MapVsSet {
 	start = System.currentTimeMillis();
 	for (int i = 0; i < inserts; i++){
 	    rand = r.nextInt(inserts/2);
-	    map.put(rand, rand);
+	    map.put(rand,rand);
 	}
 	elapsed = System.currentTimeMillis()-start;
 	System.out.println("Inserting " + inserts + " values into the map:");
